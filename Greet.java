@@ -1,4 +1,4 @@
-package session14;
+package servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletConfig;
@@ -42,7 +42,13 @@ public class Greet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		response.getWriter().append("<!DOCTYPE html>"
+				+ "<html><head><title>Insert title here</title></head><body><form action='Greet' method='get'>"
+				+ "Enter name: <input type='text' name='name'><input type='submit' value='Submit name'>"
+				+ "</form></body></html>");
 		String name=request.getParameter("name");
+		System.out.println(name);
 		if(!name.equals("")) {
 			response.getWriter().append("<h1>Hello "+name+"</h1>");
 		}
@@ -57,7 +63,7 @@ public class Greet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }
